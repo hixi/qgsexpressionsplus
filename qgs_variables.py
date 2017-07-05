@@ -1,10 +1,12 @@
-from qgis.core import *
-from qgis.utils import *
+import os
+
+from qgis.core import qgsfunction
 
 
-def env(var_name):
+@qgsfunction(args="auto", group='Custom')
+def env(var_name, *args):
     """
-        Returns the value of a layer, project or global variable
+        Returns the value of a system variable. If it isn't available, returns an empty string.
 
         <p><h4>Syntax</h4>
         env(<i>var_name</i>)</p>
@@ -14,10 +16,6 @@ def env(var_name):
 
         <p><h4>Example</h4>
         <!-- Show example of function.-->
-             env('qgis_release_name') &rarr; 'Las Palmas'</p>
+             env('USER') &rarr; 'ExampleUser'</p>
     """
-    active_layer = iface.activeLayer()
-    value = QgsExpressionContextUtils.layerScope(active_layer).variable(var_name) \
-            or QgsExpressionContextUtils.projectScope().variable(var_name) \
-            or QgsExpressionContextUtils.globalScope().variable(var_name)
-    return str(value)
+    return os.environ.get(var_name, '')
