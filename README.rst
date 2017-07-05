@@ -97,14 +97,6 @@ Save the file *qgs_variables.py* in `%userprofile%/.qgis2/python` and call the f
 	import qgs_variables
 	qgs_variables.get_env_variable('user_full_name')
 
-set_env_variable('scope, 'var_name', 'var_value')
-+++++++++++++++++
-
-Sets the value of the variable 'var_name' as 'var_value'. The 'scope' can be a global ('g'), project ('p) or layer ('l'). Similar to *get_env_variable()*, save the file *qgs_variables.py* in `%userprofile%/.qgis2/python` and call the function in the Python console as:   
-::	
-	import qgs_variables
-	qgs_variables.set_env_variable('l', 'layer_type', 'vector_point')
-
 
 hstore_get_value("field", 'key')
 +++++++++++++++++
