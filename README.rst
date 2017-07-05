@@ -92,10 +92,11 @@ Returns the value of the variable 'var_name'. The variable can be a global, proj
 
 This function is not an expression function as we generally wouldn't need to call it for each feature on the layer (it will return the same value for each feature), but it can be called from the Python console in QGIS, or from another expression function. 
 
-Save the file *qgs_variables.py* in `%userprofile%/.qgis2/python` and call the function in the Python console as:   
-::	
-	import qgs_variables
-	qgs_variables.get_env_variable('user_full_name')
+Save the file *qgs_variables.py* in `%userprofile%/.qgis2/python` and call the function in the Python console as:
+
+::
+
+	env('user_full_name')
 
 
 hstore_get_value("field", 'key')
