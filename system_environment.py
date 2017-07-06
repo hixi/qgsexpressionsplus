@@ -1,9 +1,8 @@
-import os
-
 from qgis.core import qgsfunction
+import qgis
 
 
-@qgsfunction(args="auto", group='Custom')
+@qgsfunction(1, "Expressions +", register=False)
 def env(var_name, *args):
     """
         Returns the value of a system variable. If it isn't available, returns an empty string.
@@ -18,4 +17,4 @@ def env(var_name, *args):
         <!-- Show example of function.-->
              env('USER') &rarr; 'ExampleUser'</p>
     """
-    return os.environ.get(var_name, '')
+    return qgis.user.os.getenv(var_name, '')

@@ -12,6 +12,8 @@ import math
 
 import colorfunctions
 import samplingfunctions
+import system_environment
+
 
 def getFloat(value):
     try:
@@ -229,6 +231,7 @@ functions = [
     isselected, 
     samplingfunctions.sample_raster,
     samplingfunctions.sample_polygon,
+    system_environment.env,
 ]
         
 def registerFunctions():
